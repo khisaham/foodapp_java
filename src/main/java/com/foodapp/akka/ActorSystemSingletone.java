@@ -11,11 +11,11 @@ import com.typesafe.config.ConfigFactory;
  * @author khisahamphrey
  */
 public class ActorSystemSingletone {
-    public static final String SYSTEM_NAME = "safcom_app";
+    public static final String SYSTEM_NAME = "foodapp_server";
     public static ActorRef mainActorRef = null;
 
     public static void init() {
-        final ActorSystem system =ActorSystem.create(SYSTEM_NAME, ConfigFactory.load(("safcom_app")));
+        final ActorSystem system =ActorSystem.create(SYSTEM_NAME, ConfigFactory.load(("foodapp_server")));
         mainActorRef = system.actorOf(Props.create(MainActor.class), MainActor.NAME);
 
         sendMessage(new StartHttpServerActorMessage(), null);
